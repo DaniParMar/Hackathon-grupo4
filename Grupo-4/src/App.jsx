@@ -1,11 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
-// import UserProfilePage from "./pages/UserProfilePage";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (

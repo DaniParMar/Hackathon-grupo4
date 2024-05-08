@@ -1,9 +1,25 @@
 header {
-    height: 16vh;
     color: white;
     width: 100vw;
     padding-right: 10vw;
     padding-left: 10vw;
+}
+.dropdown-menu > a {
+    color: black !important;
+}
+.navbar {
+    background-color: #ec0000 !important;
+}
+a {
+    color: white !important;
+}
+.nav-link,
+.nav-dropdown-item {
+    color: white;
+}
+
+.nav-dropdown-item:hover {
+    color: white;
 }
 
 nav {
