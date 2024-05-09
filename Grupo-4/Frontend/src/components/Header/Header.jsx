@@ -28,7 +28,7 @@ export function GameHeader() {
                                     id="basic-nav-dropdown"
                                     className="nav-dropdown"
                                 >
-                                    <NavDropdown.Item href="#action/3.1">
+                                    <NavDropdown.Item href="/addCards">
                                         Agregar Tarjeta
                                     </NavDropdown.Item>
                                     <NavDropdown.Item href="#action/3.2">

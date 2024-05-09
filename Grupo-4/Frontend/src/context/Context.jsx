@@ -4,7 +4,7 @@ export const UserContext = createContext();
 
 export const UserContextProviderComponent = ({ children }) => {
     const [user, setUser] = useState(false);
-    const [cards, setCards] = useState(['0021']);
+    const [cards, setCards] = useState([]);
 
     const addCard = (cardArray) => {
         setCards(cardArray);
