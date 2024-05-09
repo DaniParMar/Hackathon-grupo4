@@ -1,9 +1,6 @@
-// const API_URL = `https://airtable.com/v0/${
-//     import.meta.env.VITE_AIRTABLE_API_BASE_ID
-// }/${import.meta.env.VITE_AIRTABLE_TABLE_NAME}`;
-
 const API_URL =
     'https://api.airtable.com/v0/appMtJQGP8M2O4Xxf/datos_bancarios/recUwNRL9UeO6x8lL';
+
 
 const fetchConfig = {
     headers: new Headers({
@@ -12,6 +9,7 @@ const fetchConfig = {
 };
 
 export const fetchData = async () => {
+
     console.log('hola');
     try {
         const response = await fetch(API_URL, { headers: fetchConfig.headers });
@@ -25,4 +23,31 @@ export const fetchData = async () => {
         console.error('Error fetching data: ', error);
         return [];
     }
+
+  let offset = null;
+  let allRecords = [];
+
+  try {
+    do {
+      const response = await fetch(`${API_URL}?offset=${offset}`, { headers: fetchConfig.headers });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const data = await response.json();
+      allRecords = [...allRecords, ...data.records];
+
+      offset = data.offset;
+    } while (offset);
+
+    console.log(allRecords);
+    return allRecords;
+  } catch (error) {
+    console.error('Error fetching data: ', error);
+    return [];
+  }
+
 };
+
+fetchData();
