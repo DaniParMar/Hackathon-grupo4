@@ -49,3 +49,7 @@ h1 {
     margin-left: 15px;
     justify-content: space-between;
 }
+.dropdown-menu.show {
+    border: solid 2px #b49863;
+    height: 80px;
+}

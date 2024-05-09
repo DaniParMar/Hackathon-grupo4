@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
+import { AddCards } from './pages/AddCards';
 
 function App() {
     return (
@@ -10,8 +11,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<HomePage />} />
                 <Route path="/login" element={<LoginPage />} />
-
-                {/* <Route path="/user-profile" element={<UserProfilePage />} /> */}
+                <Route path="/addCards" element={<AddCards />} />
             </Routes>
         </>
     );
