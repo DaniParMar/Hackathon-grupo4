@@ -1,28 +1,41 @@
 header {
+    margin-top: 15px;
     color: white;
     width: 100vw;
+
     padding-right: 10vw;
     padding-left: 10vw;
+}
+img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.navbar-expand-lg {
+    border-radius: 10px;
+    border: solid 2px #b49863;
 }
 .navbar-brand {
     font-size: 30px;
 }
 .dropdown-menu > a {
-    color: black !important;
+    color: #2a3844 !important;
 }
 .navbar {
-    background-color: #ec0000 !important;
+    background-color: #e7eef1 !important;
 }
+
 a {
-    color: white !important;
+    color: #2a3844 !important;
 }
 .nav-link,
 .nav-dropdown-item {
-    color: white;
+    color: #2a3844;
 }
 
 .nav-dropdown-item:hover {
-    color: white;
+    color: #2a3844;
 }
 
 nav {
@@ -31,4 +44,8 @@ nav {
 
 h1 {
     font-size: xx-large;
+}
+.collapse {
+    margin-left: 15px;
+    justify-content: space-between;
 }
