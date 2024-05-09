@@ -1,84 +1,65 @@
 import { useForm } from 'react-hook-form';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../context/AuthContext';
+import { UserContext } from '../context/Context';
+import { GameHeader } from '../components/Header/Header';
+import './LoginPage.css';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
 
-    const { login } = useContext(AuthContext);
-    const [errorMessage, setErrorMessage] = useState('');
+    const { setUser } = useContext(UserContext);
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+
         reset,
     } = useForm({
         defaultValues: {
-            email: '',
+            DNI: '',
             password: '',
         },
     });
 
-    const onSubmit = async (data) => {
-        CONSOLE.LOG('HOLA');
-        // const { email, password } = data;
-        // try {
-        //     const authToken = await ({
-        //         email,
-        //         password,
-        //     });
-        //     login(authToken);
-        //     navigate('/');
-        //     reset();
-        // } catch (error) {
-        //     setErrorMessage(error.message);
-        // }
+    const onSubmit = () => {
+        console.log('hola');
+        setUser(true);
+        navigate('/');
+        reset();
     };
     return (
-        <section>
-            <h1>Login</h1>
-            <form
-                onSubmit={handleSubmit(onSubmit)}
-                style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '10px',
-                }}
-            >
-                <input
-                    {...register('email', {
-                        required: true,
-                        pattern: /^\S+@\S+\.\S+$/i,
-                    })}
-                    placeholder="Email"
-                />
-                {errors.email && <span>Email is required</span>}
-                {errors.email?.type === 'pattern' && (
-                    <span>Invalid email address</span>
-                )}
-                <input
-                    {...register('password', { required: true, minLength: 8 })}
-                    type="password"
-                    placeholder="Password"
-                />
-                {errors.password && <span>Password is required</span>}
-                {errors.password?.type === 'minLength' && (
-                    <span>Password must be at least 8 characters</span>
-                )}
-
-                <button type="submit">Register</button>
-                {errorMessage ? (
-                    <p
+        <>
+            <GameHeader />
+            <div>
+                <section>
+                    <h1>Login</h1>
+                    <form
+                        onSubmit={handleSubmit(onSubmit)}
                         style={{
-                            color: 'red',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '10px',
                         }}
                     >
-                        {errorMessage}
-                    </p>
-                ) : null}
-            </form>
-        </section>
+                        <input
+                            {...register('DNI', {
+                                required: true,
+                            })}
+                            placeholder="DNI"
+                        />
+                        <input
+                            {...register('password', {
+                                required: true,
+                                minLength: 8,
+                            })}
+                            type="password"
+                            placeholder="Password"
+                        />
+                        <button type="submit">Register</button>
+                    </form>
+                </section>
+            </div>
+        </>
     );
 };
