@@ -4,14 +4,19 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 
 import './index.css';
-import { UserContextProviderComponent } from './context/Context.jsx';
+import {
+    DataContextProviderComponent,
+    UserContextProviderComponent,
+} from './context/Context.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <UserContextProviderComponent>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
+            <DataContextProviderComponent>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </DataContextProviderComponent>
         </UserContextProviderComponent>
     </React.StrictMode>
 );
