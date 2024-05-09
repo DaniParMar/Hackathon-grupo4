@@ -1,5 +1,5 @@
 
-const API_URL = `https://airtable.com/appMtJQGP8M2O4Xxf/tblgwcwAMqtXbvTlD/viwryfqgm2Q9hdJr4${import.meta.env.VITE_AIRTABLE_API_BASE_ID}/${import.meta.env.VITE_AIRTABLE_TABLE_NAME}`;
+const API_URL = `https://airtable.com/v0/${import.meta.env.VITE_AIRTABLE_API_BASE_ID}/${import.meta.env.VITE_AIRTABLE_TABLE_NAME}`;
 
 const fetchConfig = {
   headers: new Headers({
@@ -10,7 +10,8 @@ const fetchConfig = {
 
 export const fetchData = async () => {
   try {
-    const response = await fetch(API_URL, { headers: fetchConfig.headers });
+    const response = await fetch(API_URL, { headers: fetchConfig.headers }); 
+    console.log(response);
     if (!response.ok) {
       throw new Error('Network response was not ok');
     }
