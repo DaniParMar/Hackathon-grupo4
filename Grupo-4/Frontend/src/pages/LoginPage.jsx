@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../context/Context';
 import { GameHeader } from '../components/Header/Header';
 import './LoginPage.css';
+import { Footer } from '../components/Footer/Footer';
 
 export const LoginPage = () => {
     const navigate = useNavigate();
@@ -30,8 +31,8 @@ export const LoginPage = () => {
     };
     return (
         <>
-            <GameHeader />
-            <div>
+           <header><GameHeader /></header> 
+            <main>
                 <section>
                     <h1>Login</h1>
                     <form
@@ -59,7 +60,8 @@ export const LoginPage = () => {
                         <button type="submit">Register</button>
                     </form>
                 </section>
-            </div>
+            </main>
+            <footer><Footer/></footer>
         </>
     );
 };
